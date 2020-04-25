@@ -4,7 +4,6 @@ This is just a repo for me to test out different automation changes without havi
 
 ### TODO
 
-* [ ] Add in issue templates
 * [ ] Github Actions (All 3 major platforms & multiple python versions)
     * [ ] On Push / Pull request
         * [ ] Install poetry 
@@ -22,3 +21,8 @@ This is just a repo for me to test out different automation changes without havi
         * [ ] Automatically build and push to pypi (can do this by storing a key for the repo in a github secret)
         * [ ] Automatically publish files to release page since some people like that I guess
 * [ ] Have docs in repo with some nice orgization
+* [ ] Be nice to contributors
+    * [ ] Add license
+    * [ ] Add pull request template
+    * [ ] Add contributing guidelines
+    * [ ] Add in issue templates
