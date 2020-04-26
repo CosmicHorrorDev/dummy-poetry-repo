@@ -5,9 +5,11 @@ description = ""
 authors = ["Lovecraftian Horror <LovecraftianHorror@pm.me>"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.7"
 
 [tool.poetry.dev-dependencies]
+black = "^19.10b0"
+flake8 = "^3.7"
 pytest = "^5.2"
 
 [build-system]
