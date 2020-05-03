@@ -1,6 +1,6 @@
 from dummy_poetry_repo import __version__
 
-# Counter: 2
+# Counter: 3
 
 
 def test_version():
