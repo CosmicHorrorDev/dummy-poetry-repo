@@ -27,6 +27,9 @@ jobs:
       - name: Install poetry
         run: pip install poetry
 
+      - name: Set Common venv Dir
+        run: poetry config cache-dir ~/venv
+
       # By default poetry stores virtualenvs in different places on each major
       # system. This can be easily solved by storing the virtualenvs in the
       # project itself (`poetry config virtualenvs.in-project true`): however,
