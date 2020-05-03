@@ -43,6 +43,10 @@ jobs:
           path: ~/venv
           key: venv-${{ runner.os }}-${{ steps.full-python-version.outputs.version }}-${{ hashFiles('**/poetry.lock') }}
 
+      - name: Messy Debugging
+        shell: bash
+        run: ls -l
+
       - name: Ensure cache is healthy
         if: steps.cache.outputs.cache-hit == 'true'
         shell: bash
