@@ -8,7 +8,7 @@ jobs:
     runs-on: ${{ matrix.os }}-latest
     strategy:
       matrix:
-        os: [Ubuntu, MacOS, Windows]
+        os: [Windows]
         python-version: [3.7, 3.8]
 
     steps:
@@ -34,12 +34,10 @@ jobs:
       # everything in the virtualenv. So instead we just store in a common
       # location outside the repo to get the best of both worlds.
       - name: Set up cache
-        # Is this possible?
-        shell: bash
         uses: actions/cache@v1
         id: cache
         with:
-          path: ~/venv
+          path: ~\venv
           key: venv-${{ runner.os }}-${{ steps.full-python-version.outputs.version }}-${{ hashFiles('**/poetry.lock') }}
 
       - name: Messy Debugging
