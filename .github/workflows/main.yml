@@ -45,23 +45,23 @@ jobs:
 
       - name: Messy Debugging
         shell: bash
-        run: ls -l
+        run: sleep 5 && ls -l
 
       - name: Ensure cache is healthy
         if: steps.cache.outputs.cache-hit == 'true'
         shell: bash
-        run: poetry run pip --version >/dev/null 2>&1 || rm -rf ~/venv
+        run: sleep 5 && poetry run pip --version >/dev/null 2>&1 || rm -rf ~/venv
 
       - name: Messy Debugging pt2
         shell: bash
-        run: ls -l
+        run: sleep 5 && ls -l
 
       - name: Install dependencies
-        run: poetry install
+        run: sleep 5 && poetry install
 
       - name: Messy Debugging pt3
         shell: bash
-        run: ls -l
+        run: sleep 5 && ls -l
 
       - name: Run pytest
         run: poetry run pytest
