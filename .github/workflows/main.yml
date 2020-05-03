@@ -25,7 +25,6 @@ jobs:
         run: echo ::set-output name=version::$(python -c "import sys; print('.'.join(str(v) for v in sys.version_info))")
 
       - name: Install poetry
-        shell: bash
         run: pip install poetry
 
       # By default poetry stores virtualenvs in different places on each major
@@ -35,7 +34,6 @@ jobs:
       # everything in the virtualenv. So instead we just store in a common
       # location outside the repo to get the best of both worlds.
       - name: Use Common Poetry venv
-        shell: bash
         run: poetry config cache-dir ~/venv
 
       - name: Set up cache
@@ -51,11 +49,9 @@ jobs:
         run: poetry run pip --version >/dev/null 2>&1 || rm -rf ~/venv
 
       - name: Install dependencies
-        shell: bash
         run: poetry install
 
       - name: Run pytest
-        shell: bash
         run: poetry run pytest
 
       - name: Run flake8
