@@ -8,7 +8,7 @@ jobs:
     runs-on: ${{ matrix.os }}-latest
     strategy:
       matrix:
-        os: [Windows]
+        os: [Ubuntu, MacOs, Windows]
         python-version: [3.7, 3.8]
 
     steps:
@@ -36,6 +36,10 @@ jobs:
       # that poses the problem of all tools run against the repo including
       # everything in the virtualenv. So instead we just store in a common
       # location outside the repo to get the best of both worlds.
+      # Note: That for windows, the only configuration for this to work is for
+      #       the poetry cache-dir to be set using $HOME and the cache action
+      #       to use ~. Otherwise poetry will create a directory called ~ or
+      #       caching will try to interpret $HOME as a directory.
       - name: Set up cache
         uses: actions/cache@v1
         id: cache
