@@ -28,9 +28,15 @@ jobs:
         shell: bash
         run: pip install poetry
 
-      - name: Configure poetry
+      # By default poetry stores virtualenvs in different places on each major
+      # system. This can be easily solved by storing the virtualenvs in the
+      # project itself (`poetry config virtualenvs.in-project true`): however,
+      # that poses the problem of all tools run against the repo including
+      # everything in the virtualenv. So instead we just store in a common
+      # location outside the repo to get the best of both worlds.
+      - name: Use Common Poetry venv
         shell: bash
-        run: poetry config virtualenvs.in-project true
+        run: poetry config cache-dir $HOME/venv
 
       - name: Set up cache
         uses: actions/cache@v1
@@ -55,9 +61,9 @@ jobs:
       - name: Run flake8
         run: |
             # Stop the build if there are Python syntax errors or undefined names
-            poetry run flake8 --exclude .venv --count --select=E9,F63,F7,F82 --show-source --statistics .
+            poetry run flake8 --count --select=E9,F63,F7,F82 --show-source --statistics .
             # Error on warnings because I'm strict
-            poetry run flake8 --exclude .venv --count --statistics .
+            poetry run flake8 --count --statistics .
 
       - name: Run black
-        run: poetry run black --exclude .venv --check .
+        run: poetry run black  --check .
