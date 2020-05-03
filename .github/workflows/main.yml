@@ -40,19 +40,11 @@ jobs:
         uses: actions/cache@v1
         id: cache
         with:
-          path: ~\venv
+          path: $HOME/venv
           key: venv-v2-${{ runner.os }}-${{ steps.full-python-version.outputs.version }}-${{ hashFiles('**/poetry.lock') }}
-
-      - name: Messy Debugging
-        shell: bash
-        run: ls -l
 
       - name: Install dependencies
         run: poetry install
-
-      - name: Messy Debugging pt2
-        shell: bash
-        run: ls -l
 
       - name: Run pytest
         run: poetry run pytest
