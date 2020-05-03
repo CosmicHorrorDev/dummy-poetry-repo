@@ -28,7 +28,7 @@ jobs:
         run: pip install poetry
 
       - name: Set Common venv Dir
-        run: poetry config cache-dir ~/venv
+        run: poetry config cache-dir $HOME/venv
 
       # By default poetry stores virtualenvs in different places on each major
       # system. This can be easily solved by storing the virtualenvs in the
