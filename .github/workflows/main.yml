@@ -36,19 +36,19 @@ jobs:
       # location outside the repo to get the best of both worlds.
       - name: Use Common Poetry venv
         shell: bash
-        run: poetry config cache-dir $HOME/venv
+        run: poetry config cache-dir ~/venv
 
       - name: Set up cache
         uses: actions/cache@v1
         id: cache
         with:
-          path: .venv
+          path: ~/venv
           key: venv-${{ runner.os }}-${{ steps.full-python-version.outputs.version }}-${{ hashFiles('**/poetry.lock') }}
 
       - name: Ensure cache is healthy
         if: steps.cache.outputs.cache-hit == 'true'
         shell: bash
-        run: poetry run pip --version >/dev/null 2>&1 || rm -rf .venv
+        run: poetry run pip --version >/dev/null 2>&1 || rm -rf ~/venv
 
       - name: Install dependencies
         shell: bash
