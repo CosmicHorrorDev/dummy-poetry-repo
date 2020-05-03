@@ -33,10 +33,9 @@ jobs:
       # that poses the problem of all tools run against the repo including
       # everything in the virtualenv. So instead we just store in a common
       # location outside the repo to get the best of both worlds.
-      - name: Use Common Poetry venv
-        run: poetry config cache-dir ~/venv
-
       - name: Set up cache
+        # Is this possible?
+        shell: bash
         uses: actions/cache@v1
         id: cache
         with:
