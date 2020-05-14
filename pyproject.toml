@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "dummy-poetry-repo"
-version = "0.1.0"
-description = ""
+version = "0.1.1"
+description = "Just a repository for testing out different stuff so I don't have to clutter my offiail repos"
 authors = ["Lovecraftian Horror <LovecraftianHorror@pm.me>"]
 
 [tool.poetry.dependencies]
